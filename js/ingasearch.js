@@ -86,6 +86,10 @@ var is = (function () {
     var resultScore = 0,
       startScore = 0,
       stepScore = 0;
+
+    if ( searchWord.length < settings.minSearchCount ) {
+      return 0;
+    }
     startSearchWord = searchWord.slice(0, settings.minSearchCount);
     if (place == "title") {
       startScore = 1;
@@ -183,7 +187,7 @@ var is = (function () {
     into HTML document.
     In HTML document must be " <div id="ingaSearch"></div> " string.
     This is the root point for all insertions.
-    Each link displays in "div" element with attribute class="inga_output_result".
+    Each link displays in "div" element with attribute class="ingaOutputResult".
   */
   function insertResults(pagesRating) {
     var insrtPlace = document.getElementById(settings.resultRootId),
